@@ -1,15 +1,16 @@
 
 import './App.css'
 import TodoProvider from "./context/provider";
+import Home from "./pages/Home";
 
 function App() {
  
 
   return (
     <TodoProvider>
-      Hello
+      <Home />
     </TodoProvider>
-  )
+  );
 }
 
 export default App
