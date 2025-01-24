@@ -17,15 +17,7 @@
   transform: scale(1.1); /* Slightly enlarge title on hover */
 }
 
-.add-todo {
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  animation: slideIn 0.5s ease-out;
-}
+
 
 @media (max-width: 600px) {
   .home-container h1 {
