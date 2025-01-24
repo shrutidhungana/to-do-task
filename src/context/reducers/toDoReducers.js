@@ -71,7 +71,7 @@ export const toDoReducers = (state, action) => {
     case REORDER_TODOS:
       return {
         ...state,
-        todos: action.payload.reorderedTodos, // Pass the reordered array directly
+        todos: action.payload.reorderedTodos, 
       };
 
     default:
