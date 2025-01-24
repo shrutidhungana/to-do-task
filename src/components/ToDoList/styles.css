@@ -12,10 +12,26 @@
   animation: fadeIn 0.5s forwards;
 }
 
+.todo-item.completed {
+  background-color: #d3f9d8; /* Greenish background for completed tasks */
+}
+
+
 .todo-text {
   margin: 0;
   font-size: 16px;
   color: #333;
+}
+
+.todo-text .completed {
+  text-decoration: line-through; /* Strike-through completed tasks */
+  color: #999;
+}
+
+.todo-checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #4caf50; /* Green color for checkbox */
 }
 
 .no-todos-message {

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import ConfirmationModal from "../ConfirmationModal";
 
 const TodoList = ({handleEdit}) => {
-  const [{ todos }, { deleteTodo }] = useToDo();
+  const [{ todos }, { deleteTodo, toggleTodo }] = useToDo();
 
   const [isModalOpen, setISModalOpen] = useState(false); 
   const [todoToDelete, setTodoToDelete] = useState(null); 
@@ -27,6 +27,10 @@ const TodoList = ({handleEdit}) => {
     setISModalOpen(false); 
   };
 
+  const handleToggleComplete = (todo) => {
+     toggleTodo(todo?.id);
+   };
+
   return (
     <div className="todo-list">
       {todos?.length === 0 ? (
@@ -34,7 +38,17 @@ const TodoList = ({handleEdit}) => {
       ) : (
         todos?.map((todo) => (
           <div key={todo.id} className="todo-item">
-            <p className="todo-text">{todo.text}</p>
+            <input
+              type="checkbox"
+              checked={todo.isComplete}
+              onChange={() => handleToggleComplete(todo)}
+              className="todo-checkbox"
+            />
+            <p
+              className={`todo-text ${todo.isComplete ? "completed" : ""}`}
+            >
+              {todo.text}
+            </p>
             <FaEdit
               className="todo-edit-icon"
               title="Edit Task"
@@ -43,7 +57,7 @@ const TodoList = ({handleEdit}) => {
             <FaTrash
               className="todo-edit-icon"
               title="Delete Task"
-              onClick={() => handleDeleteClick(todo)} 
+              onClick={() => handleDeleteClick(todo)}
             />
           </div>
         ))
