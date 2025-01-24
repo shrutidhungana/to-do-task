@@ -111,29 +111,34 @@ const TodoItem = ({
       ref={(node) => drag(drop(node))}
       className={`todo-item ${isDragging ? "dragging" : ""}`}
     >
-      <ContextMenuTrigger id={`todo-context-menu-${todo.id}`}>
-        <div className="drag-handle">
-          <FaGripVertical />
+      <ContextMenuTrigger
+        id={`todo-context-menu-${todo.id}`}
+        holdToDisplay={500}
+      >
+        <div className="todo-item-content">
+          <div className="drag-handle">
+            <FaGripVertical className="todo-grip-icon" />
+          </div>
+          <input
+            type="checkbox"
+            checked={todo.isComplete}
+            onChange={() => handleToggleComplete(todo)}
+            className="todo-checkbox"
+          />
+          <p className={`todo-text ${todo.isComplete ? "completed" : ""}`}>
+            {todo.text}
+          </p>
+          <FaEdit
+            className="todo-edit-icon"
+            title="Edit Task"
+            onClick={() => handleEdit(todo)}
+          />
+          <FaTrash
+            className="todo-delete-icon"
+            title="Delete Task"
+            onClick={() => handleDeleteClick(todo)}
+          />
         </div>
-        <input
-          type="checkbox"
-          checked={todo.isComplete}
-          onChange={() => handleToggleComplete(todo)}
-          className="todo-checkbox"
-        />
-        <p className={`todo-text ${todo.isComplete ? "completed" : ""}`}>
-          {todo.text}
-        </p>
-        <FaEdit
-          className="todo-edit-icon"
-          title="Edit Task"
-          onClick={() => handleEdit(todo)}
-        />
-        <FaTrash
-          className="todo-edit-icon"
-          title="Delete Task"
-          onClick={() => handleDeleteClick(todo)}
-        />
       </ContextMenuTrigger>
       <ContextMenu id={`todo-context-menu-${todo.id}`}>
         <MenuItem className="custom-menu-item" onClick={() => handleEdit(todo)}>
@@ -155,6 +160,7 @@ const TodoItem = ({
     </div>
   );
 };
+
 
 TodoList.propTypes = {
   handleEdit: PropTypes.func,

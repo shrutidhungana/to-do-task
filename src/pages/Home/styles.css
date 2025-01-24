@@ -1,13 +1,20 @@
 .home-container {
+  min-width: 600px;
+  width: 100%;
+   margin: 0 auto;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: linear-gradient( to bottom, #FDEBD0, #F9D7E3);
 }
 
 .home-container h1 {
-  color: #333;
+  color: #7a3bdb;
   margin-bottom: 30px;
   font-size: 2.5rem;
   transition: transform 0.3s ease;

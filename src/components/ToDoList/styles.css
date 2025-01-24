@@ -3,13 +3,21 @@
 }
 
 .todo-item {
-  background-color: #fff;
-  padding: 10px;
+  background: linear-gradient(to top right,#FFB6C1, #FFD700);
+  padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
+  margin: 20px 10px 120px 10px;
   opacity: 0;
   animation: fadeIn 0.5s forwards;
+  min-width: 350px;
+}
+
+.todo-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .todo-item.dragging {
@@ -26,25 +34,25 @@
 
 
 .todo-item.completed {
-  background-color: #d3f9d8; /* Greenish background for completed tasks */
+  background-color: #d3f9d8; 
 }
 
 
 .todo-text {
   margin: 0;
   font-size: 16px;
-  color: #333;
+  color:#283593;
 }
 
 .todo-text .completed {
-  text-decoration: line-through; /* Strike-through completed tasks */
+  text-decoration: line-through; 
   color: #999;
 }
 
 .todo-checkbox {
   margin-right: 10px;
   cursor: pointer;
-  accent-color: #4caf50; /* Green color for checkbox */
+  accent-color: #4caf50;
 }
 
 .no-todos-message {
@@ -57,18 +65,22 @@
 }
 
 
-.todo-edit-icon {
+.todo-edit-icon,
+.todo-delete-icon {
   cursor: pointer;
   color: #4caf50;
   font-size: 20px;
   transition: color 0.3s ease;
 }
 
-.todo-edit-icon:hover {
+.todo-edit-icon:hover, 
+.todo-delete-icon:hover {
   color: #388e3c;
 }
 
-.todo-edit-icon[title]:hover::after {
+.todo-edit-icon[title]:hover::after,
+.todo-delete-icon[title]:hover::after
+ {
   content: attr(title);
   position: absolute;
   background: #333;
@@ -83,10 +95,19 @@
   transition: opacity 0.3s ease;
 }
 
+.todo-grip-icon {
+  font-size: 30px;
+  color: #A9A9A9;
+}
+
+.todo-grip-icon:hover{
+  color: #E5E4E2;
+}
+
 .react-contextmenu {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
-  background-color: #fff;
+  background-color: #FDEBD0;
   min-width: 200px;
 }
 

@@ -35,7 +35,7 @@ button:hover {
 
 /* Smooth fade-in effect for page load */
 .home-container {
-  max-width: 500px;
+  min-width: 500px;
   width: 100%;
   margin: 0 auto;
   padding: 30px;
