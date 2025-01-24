@@ -8,7 +8,7 @@ function App() {
 
   return (
     <TodoProvider>
-      <div className="app">
+      <div>
         <Home />
       </div>
     </TodoProvider>

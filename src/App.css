@@ -32,33 +32,7 @@ h1 {
 }
 
 
-.app {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #FDEBD0, #F9D7E3); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-}
 
-@media (max-width: 600px) {
-  .app {
-    padding: 10px;
-  }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-  .app {
-    padding: 20px;
-  }
-}
-
-@media (min-width: 1025px) {
-  .app {
-    padding: 30px;
-  }
-}
 
 @media (max-width: 600px) {
   body {
