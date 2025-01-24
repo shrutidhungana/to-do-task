@@ -5,6 +5,9 @@ import { useDrag, useDrop } from "react-dnd";
 import "./styles.css";
 import PropTypes from "prop-types";
 import ConfirmationModal from "../ConfirmationModal";
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+
+
 
 // Define drag item type
 const ITEM_TYPE = "TODO_ITEM";
@@ -108,28 +111,47 @@ const TodoItem = ({
       ref={(node) => drag(drop(node))}
       className={`todo-item ${isDragging ? "dragging" : ""}`}
     >
-      <div className="drag-handle">
-        <FaGripVertical />
-      </div>
-      <input
-        type="checkbox"
-        checked={todo.isComplete}
-        onChange={() => handleToggleComplete(todo)}
-        className="todo-checkbox"
-      />
-      <p className={`todo-text ${todo.isComplete ? "completed" : ""}`}>
-        {todo.text}
-      </p>
-      <FaEdit
-        className="todo-edit-icon"
-        title="Edit Task"
-        onClick={() => handleEdit(todo)}
-      />
-      <FaTrash
-        className="todo-edit-icon"
-        title="Delete Task"
-        onClick={() => handleDeleteClick(todo)}
-      />
+      <ContextMenuTrigger id={`todo-context-menu-${todo.id}`}>
+        <div className="drag-handle">
+          <FaGripVertical />
+        </div>
+        <input
+          type="checkbox"
+          checked={todo.isComplete}
+          onChange={() => handleToggleComplete(todo)}
+          className="todo-checkbox"
+        />
+        <p className={`todo-text ${todo.isComplete ? "completed" : ""}`}>
+          {todo.text}
+        </p>
+        <FaEdit
+          className="todo-edit-icon"
+          title="Edit Task"
+          onClick={() => handleEdit(todo)}
+        />
+        <FaTrash
+          className="todo-edit-icon"
+          title="Delete Task"
+          onClick={() => handleDeleteClick(todo)}
+        />
+      </ContextMenuTrigger>
+      <ContextMenu id={`todo-context-menu-${todo.id}`}>
+        <MenuItem className="custom-menu-item" onClick={() => handleEdit(todo)}>
+          Edit
+        </MenuItem>
+        <MenuItem
+          className="custom-menu-item"
+          onClick={() => handleDeleteClick(todo)}
+        >
+          Delete
+        </MenuItem>
+        <MenuItem
+          className="custom-menu-item"
+          onClick={() => handleToggleComplete(todo)}
+        >
+          {todo.isComplete ? "Mark as Incomplete" : "Mark as Complete"}
+        </MenuItem>
+      </ContextMenu>
     </div>
   );
 };

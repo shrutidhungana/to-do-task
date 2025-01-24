@@ -83,6 +83,48 @@
   transition: opacity 0.3s ease;
 }
 
+.react-contextmenu {
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  background-color: #fff;
+  min-width: 200px;
+}
+
+/* Custom styles for MenuItem */
+.custom-menu-item {
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+/* Change background on hover */
+.custom-menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Optionally, you can add styles for MenuItem when it's clicked */
+.custom-menu-item:active {
+  background-color: #d1d1d1;
+}
+
+/* Style the entire ContextMenu container */
+.react-contextmenu-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.react-contextmenu-item {
+  font-family: Arial, sans-serif;
+}
+
+/* Additional hover styles for the whole context menu if needed */
+.react-contextmenu-item:hover {
+  background-color: #e2e2e2;
+  cursor: pointer;
+}
 /* Fade In Animation for Todo Items */
 @keyframes fadeIn {
   0% {
