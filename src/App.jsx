@@ -8,7 +8,9 @@ function App() {
 
   return (
     <TodoProvider>
-      <Home />
+      <div className="app">
+        <Home />
+      </div>
     </TodoProvider>
   );
 }

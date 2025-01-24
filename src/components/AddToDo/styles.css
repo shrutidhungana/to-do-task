@@ -1,34 +1,56 @@
+/* AddTodo component styles */
 .add-todo {
-  max-width: 400px;
-  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
   padding: 10px;
   background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease-out;
 }
 
 .add-todo-input {
-  width: 75%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  width: 75%;  
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid #ddd;
   border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.add-todo-input:focus {
+  border-color: #4CAF50;
+  outline: none;
 }
 
 .add-todo-btn {
-  padding: 8px 12px;
+  padding: 10px 15px;
   background-color: #4CAF50;
   color: white;
+  font-size: 1.2rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .add-todo-btn:hover {
   background-color: #45a049;
+  transform: scale(1.05);
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 600px) {
@@ -38,7 +60,43 @@
   }
 
   .add-todo-input {
-    width: 100%;
-    margin-bottom: 10px;
+    width: 80%; 
+    margin-bottom: 10px; 
+  }
+
+  .add-todo-btn {
+    width: 80%; 
+    margin-top: 10px;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .add-todo {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .add-todo-btn {
+    width: 30%;
+  }
+
+  .add-todo-input {
+    width: 65%;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .add-todo {
+    width: 80%;
+  }
+
+  .add-todo-input {
+    width: 70%;
+  }
+
+  .add-todo-btn {
+    width: 20%;
   }
 }
