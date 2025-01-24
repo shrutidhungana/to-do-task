@@ -27,6 +27,33 @@
   margin-top: 20px;
 }
 
+
+.todo-edit-icon {
+  cursor: pointer;
+  color: #4caf50;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.todo-edit-icon:hover {
+  color: #388e3c;
+}
+
+.todo-edit-icon[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 4px;
+  bottom: 30px;
+  left: -50%;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 /* Fade In Animation for Todo Items */
 @keyframes fadeIn {
   0% {
