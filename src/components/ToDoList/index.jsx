@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import ConfirmationModal from "../ConfirmationModal";
 
 const TodoList = ({handleEdit}) => {
-  const [{ todos }, { deleteTodo, toggleTodo }] = useToDo();
+  const [{ todos, filter }, { deleteTodo, toggleTodo }] = useToDo();
 
   const [isModalOpen, setISModalOpen] = useState(false); 
   const [todoToDelete, setTodoToDelete] = useState(null); 
@@ -31,12 +31,18 @@ const TodoList = ({handleEdit}) => {
      toggleTodo(todo?.id);
    };
 
+   const filteredTodos = todos.filter((todo) => {
+     if (filter === "COMPLETED") return todo.isComplete;
+     if (filter === "INCOMPLETE") return !todo.isComplete;
+     return true; // "ALL"
+   });
+  
   return (
     <div className="todo-list">
-      {todos?.length === 0 ? (
+      {filteredTodos?.length === 0 ? (
         <p className="no-todos-message">No tasks yet. Add some!</p>
       ) : (
-        todos?.map((todo) => (
+        filteredTodos?.map((todo) => (
           <div key={todo.id} className="todo-item">
             <input
               type="checkbox"
@@ -44,9 +50,7 @@ const TodoList = ({handleEdit}) => {
               onChange={() => handleToggleComplete(todo)}
               className="todo-checkbox"
             />
-            <p
-              className={`todo-text ${todo.isComplete ? "completed" : ""}`}
-            >
+            <p className={`todo-text ${todo.isComplete ? "completed" : ""}`}>
               {todo.text}
             </p>
             <FaEdit
