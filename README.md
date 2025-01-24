@@ -39,3 +39,6 @@ To setup this project:
 
 - On Right clicking anywhere in the list item till the left of delete icon, you will see a context menu where you can Edit, Delete and Mark as incomplete if completed and complete if incomplete.
 
+For further information about the task visit the website:
+
+https://shrutidhungana.github.io/to-do-task/
