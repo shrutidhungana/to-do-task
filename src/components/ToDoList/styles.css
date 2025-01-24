@@ -12,6 +12,19 @@
   animation: fadeIn 0.5s forwards;
 }
 
+.todo-item.dragging {
+  background: #ffe9ec;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.drag-handle {
+  cursor: move;
+  margin-right: 10px;
+}
+
+
+
 .todo-item.completed {
   background-color: #d3f9d8; /* Greenish background for completed tasks */
 }
