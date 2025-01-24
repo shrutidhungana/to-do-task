@@ -1,0 +1,80 @@
+.confirmation-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.confirmation-modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+.confirmation-message {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.confirm-btn,
+.cancel-btn {
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.confirm-btn {
+  background-color: green;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: red;
+  color: white;
+}
+
+.close-modal-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
